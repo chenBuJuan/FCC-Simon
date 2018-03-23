@@ -74,13 +74,15 @@ function initGame(){
     gameContinue();
 }
 function gameContinue(){
-    levelUp();
+    if(levelUp())
+        return;
     play();
 }
 function levelUp(){
     levelNum++;
     if(levelNum == 21){
         win();
+        return true;
     }
     level.text(setNum(levelNum));
     order.push(Math.round(Math.random() * 3));
